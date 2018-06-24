@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <span v-if="seen">Now you see me</span>
+    <p>
+        <span v-bind:title="message2">
+            Move over a mouse pointer for a couple of seconds to see a dynamically linked value of the title!
+        <span>
+    </p>
+</div>
+
+
+    <script src="body.js"></script>
+</body>
+</html>
+
