@@ -1,26 +1,21 @@
-new Vue({ el: '#custom-components'});
 
 Vue.component('board-status', {
+    template: '<div>Connection status: {{ this.value }}</div>',
     data: function() {
-        this.$http.get('/board/1/ping').then(
-            response => { // get body data
-                this.value = 'GOOD';
-                this.is_bad = false;
-            },
-            response => { // error callback
-                this.value = 'BAD';
-                this.is_bad = true;
-            }
-        );
-        return 0;
-    },
-    props: [ 'value', 'is_bad' ],
-    template: '<div>Connection status: {{ this.value }}</div>'
+        return { 
+            value: axios.get('/device/ping?did=2')
+                    .then( this.value = 'GET' )
+                    .catch( this.value = 'Exception' )
+        }
+    }
 });
 
+new Vue({ el: '#custom-components'});
+
+/*
 Vue.component('board-uptime', {
     data: function() {
-        this.$http.post('/board/1/uptime').then(
+        this.$http.post('/proxy/uptime').then(
             response => { // get body data
                 this.value = '14h 25m 13s';
                 this.is_bad = false;
@@ -31,10 +26,9 @@ Vue.component('board-uptime', {
             }
         );
     },
-    props: [ 'value', 'is_bad' ],
     template: '<div>Board uptime: {{ this.value }}</div>'
 });
-
+*/
 
 
 var general = new Vue({
