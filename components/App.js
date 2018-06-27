@@ -1,17 +1,17 @@
 import ProxyStatus from './proxy-status.js';
-import ProxyUptime from './proxy-uptime.js';
+import ProxyStats from './proxy-stats.js';
 
 
 export default {
     name: 'App',
     components: {
-        ProxyUptime,
         ProxyStatus,
+        ProxyStats,
     },
     template: `
         <div class="container mx-auto p-4">
             <ProxyStatus></ProxyStatus>
-            <ProxyUptime></ProxyUptime>
+            <ProxyStats></ProxyStats>
         </div>
     `
 };
