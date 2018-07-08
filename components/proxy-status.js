@@ -11,7 +11,7 @@ export default {
         setInterval(function() {
             this.loading = true;
             axios
-                .get('/proxy/ping\?did=1')
+                .get('/proxy/ping')
                 .then(response => {
                     if ( response.data.status_code == 202 ) {
                         this.connected = true;
