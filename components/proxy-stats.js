@@ -23,7 +23,7 @@ export default {
                 return s;
             }
             axios
-                .get('/proxy/uptime')
+                .get('/proxy/uptime\?did=1')
                 .then(response => {
                     this.uptime = Number(response.data.data.uptime);
                     this.connected = true;
